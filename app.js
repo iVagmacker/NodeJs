@@ -4,7 +4,7 @@ var routeNews = require('./app/routes/noticias');
 routeNews(app);
 
 var routeHome = require('./app/routes/home');
-routehome(app);
+routeHome(app);
 
 var routeFormNew = require('./app/routes/formulario_inclusao_noticias');
 routeFormNew(app);
