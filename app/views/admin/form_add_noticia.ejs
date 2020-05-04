@@ -2,20 +2,41 @@
 	<html lang="pt-br">
 		<head>
 			<meta charset="utf-8"/>
-			<title>Formul·rio de cadastro de NotÌcia</title>
+			<title>Formul√°rio de cadastro de Not√≠cia</title>
 		</head>
 	<body>
 
-		<h1>Adicionar notÌcia</h1>
+		<h1>Adicionar not√≠cia</h1>
 		<br />
 
+		<% if(validacao) { %>
+		<ul>
+			<% for(var i = 0; i < validacao.length; i++) { %>
+				<li>
+					<%= validacao[i].msg %>
+				</li>
+			 <% } %>
+		</ul>
+	<% } %>
 		<form action="/noticias/salvar" method="post" >
-			<label>Titulo</label>
-			<input type="text" id="titulo" name="titulo" placeholder="TÌtulo da notÌcia"/>
+			<label>T√≠tulo</label>
+			<input type="text" id="titulo" name="titulo" value="<%=noticia.titulo%>" placeholder="T√≠tulo da not√≠cia"/>
+			<br />
+
+			<label>Resumo</label>
+			<input type="text" id="resumo" name="resumo" value="<%=noticia.resumo%>" placeholder="Resumo da not√≠cia"/>
+			<br />
+
+			<label>Autor</label>
+			<input type="text" id="autor" name="autor" value="<%=noticia.autor%>" placeholder="Autor da not√≠cia"/>
+			<br />
+
+			<label>Data</label>
+			<input type="date" id="data_noticia" name="data_noticia" data_noticia="<%=noticia.data_noticia%>" placeholder="Data da not√≠cia"/>
 			<br />
 
 			<label>Noticia</label>
-			<textarea id="noticia" name="noticia" rows="5" cols="30"></textarea>
+			<textarea id="noticia" name="noticia" rows="5" cols="30"><%=noticia.noticia%></textarea>
 			<br />
 
 			<input type="submit" value="Enviar" />
